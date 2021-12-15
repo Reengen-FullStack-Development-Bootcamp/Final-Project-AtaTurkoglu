@@ -72,7 +72,6 @@ export default {
           },
         })
         .then((res) => {
-          console.log('-data-', res);
           //timestamp date datas to date
           setDateFormat(res.data.columns, res.data.rows);
           //set daterange to array
@@ -114,7 +113,6 @@ export default {
     },
 
     async editRow({ commit, state }, data) {
-      console.log(data);
       await axios
         .patch(process.env.VUE_APP_API + '/dashboard/datatable/updaterow', data)
         .then((res) => {

@@ -51,8 +51,7 @@
               <v-icon
                 small
                 @click="
-                  (dialogs.deleteRowDialogState = true),
-                    (idForDelete = item.id);
+                  (dialogs.deleteRowDialogState = true), (idForDelete = item.id)
                 "
               >
                 mdi-delete
@@ -74,7 +73,7 @@
         <v-icon
           small
           @click="
-            (dialogs.deleteRowDialogState = true), (idForDelete = item.id);
+            (dialogs.deleteRowDialogState = true), (idForDelete = item.id)
           "
         >
           mdi-delete
@@ -84,7 +83,7 @@
         <v-container>
           <v-row justify="end">
             <v-btn
-            v-if="tableName == 'Departments'"
+              v-if="tableName == 'Departments'"
               color="blue-grey lighten-1"
               small
               text
@@ -202,7 +201,7 @@ export default {
     window.onbeforeunload = () => {
       window.localStorage.setItem(
         `${this.tableName.toLowerCase()}Cols`,
-        JSON.stringify(this.data.columns.map((c) => c.attname)),
+        JSON.stringify(this.data.columns.map((c) => c.attname))
       );
     };
     document
@@ -221,7 +220,7 @@ export default {
   beforeDestroy() {
     window.localStorage.setItem(
       `${this.tableName.toLowerCase()}Cols`,
-      JSON.stringify(this.data.columns.map((c) => c.attname)),
+      JSON.stringify(this.data.columns.map((c) => c.attname))
     );
   },
   watch: {
@@ -289,7 +288,6 @@ export default {
       let element = e.target;
       if (element.tagName == 'TH' && element.textContent != 'Actions') {
         e.dataTransfer.dropEffect = 'move';
-        console.log(e);
         this.dragSelected = element.textContent.replaceAll(' ', '_');
         this.drag = true;
       }
@@ -303,20 +301,20 @@ export default {
 
         if (
           Object.values(this.data.columns.map((e) => e.attname)).indexOf(
-            this.dragSelected,
+            this.dragSelected
           ) >= 0
         ) {
           this.itemIndex = Object.values(
-            this.data.columns.map((e) => e.attname),
+            this.data.columns.map((e) => e.attname)
           ).indexOf(this.dragSelected);
 
           if (
             Object.values(this.data.columns.map((e) => e.attname)).indexOf(
-              this.dragList[this.dragList.length - 1],
+              this.dragList[this.dragList.length - 1]
             ) >= 0
           ) {
             this.targetIndex = Object.values(
-              this.data.columns.map((e) => e.attname),
+              this.data.columns.map((e) => e.attname)
             ).indexOf(this.dragList[this.dragList.length - 1]);
             if (this.targetIndex < this.itemIndex) {
               e.target.style['border-left'] = '2px solid #78909c';
