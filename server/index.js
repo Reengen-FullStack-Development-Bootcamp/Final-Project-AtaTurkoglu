@@ -7,11 +7,8 @@ const dataTable = require('./router/dataTable');
 
 dotenv.config();
 const app = express();
-app.use(
-  cors({
-    origin: '*',
-  })
-);
+app.use(cors());
+app.options('*', cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
